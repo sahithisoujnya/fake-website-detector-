@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honeypot Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="admin-body">
+    <div class="background-animation-admin"></div>
+    <div class="admin-container">
+        <header class="admin-header glass">
+            <div class="header-title">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h2>Honeypot Dashboard</h2>
+            </div>
+            <div class="status-badge pulse">
+                <div class="dot"></div> System Active Logging
+            </div>
+        </header>
+        
+        <div class="dashboard-grid">
+            <div class="card glass chart-card">
+                <h3>Attack Frequency</h3>
+                <div class="chart-container">
+                    <canvas id="attackChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="card glass">
+                <h3>Recent Capture Logs</h3>
+                <div class="table-responsive">
+                    <table id="logsTable">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>IP Address</th>
+                                <th>Attack Type</th>
+                                <th>Username Attempt</th>
+                                <th>Password Attempt</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logsBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>
